@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TheTruthGhost — Chat</title>
+  <link rel="stylesheet" href="/frontend/styles.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>TheTruthGhost</h1>
+      <div class="controls">
+        <select id="persona">
+          <option value="default">Standard (freundlich, knapp)</option>
+          <option value="wise">Weiser Mentor</option>
+          <option value="sarcastic">Sarkastisch (Spaß)</option>
+          <option value="detailed">Ausführlich & Quellenorientiert</option>
+        </select>
+        <label class="switch"><input type="checkbox" id="useRag">RAG (Dokumente nutzen)</label>
+        <input type="file" id="docUpload" accept=".txt,.md" />
+      </div>
+    </header>
+
+    <main>
+      <ul id="messages" class="messages"></ul>
+      <div id="status" class="status"></div>
+    </main>
+
+    <form id="composer" autocomplete="off">
+      <textarea id="input" placeholder="Frag mich irgendwas..." rows="2"></textarea>
+      <div class="actions">
+        <button type="submit" id="send">Senden</button>
+        <button type="button" id="clear">Neu starten</button>
+      </div>
+    </form>
+
+    <footer>
+      <small>Privater Testmodus — API‑Key wird auf dem Server erwartet. Keine Schlüssel im Frontend.</small>
+    </footer>
+  </div>
+
+  <script src="/frontend/app.js"></script>
+</body>
+</html>

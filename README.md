@@ -1,66 +1,31 @@
 # TheTruthGhost-App
-Frage/Antwort 
-markdown
-👻 TheTruthGhost – Der Bot, der (fast) alles weiß
 
-TheTruthGhost ist eine leistungsstarke Frage-Antwort-Web-App.  
-Du stellst die Fragen – er liefert dir die Antworten. Schnell, direkt und rund um die Uhr.
+Frage/Antwort – TheTruthGhost mit OpenAI
 
----
+Dieses Branch enthält eine private, lokal testbare Integration mit OpenAI (gpt-3.5-turbo). Features:
+- Chat UI mit Personas (freundlich, weise, sarkastisch, ausführlich)
+- RAG‑Toggle: lade .txt/.md Dokumente hoch und nutze sie als Kontext
+- Moderation‑Check vor Anfrage
+- Session‑History im Browser (localStorage)
 
-💡 Was ist TheTruthGhost?
 
-Ein smarter KI-Bot, der dir bei allem hilft:  
-- Allgemeinwissen  
-- Technik & IT  
-- Gesundheit & Fitness  
-- Business & Geld  
-- Motivation & Mindset  
-- Alltag & Lifehacks  
-… und vieles mehr!
+## Setup (lokal)
+1. Repository klonen und zum neuen Branch wechseln:
+   git checkout -b feature/thetruthghost-by-chritical1588
+2. Server installieren:
+   cd server
+   npm install
+3. Kopiere `.env.example` nach `.env` in `server/` und setze deinen OPENAI_API_KEY.
+4. Server starten:
+   npm run dev
+5. Öffne die Frontendseite:
+   - Entweder: öffne `frontend/index.html` in deinem Browser (Backend CORS erforderlich),
+   - Oder: starte einen kleinen static file server (z.B. `npx serve frontend`) und wähle den Server‑Port so, dass `/api/ask` an `http://localhost:3000/api/ask` geroutet wird.
 
----
 
-🌐 Live-Demo
-
-Teste es hier:  
-https://chritical1588.github.io/thetruthghost
-
----
-
-⚙️ Technologien
-
-- HTML  
-- CSS  
-- JavaScript  
-- OpenAI API (optional, falls integriert)
-
----
-
-🚀 Nutzung
-
-1. Repository klonen oder herunterladen  
-2. `index.html` öffnen  
-3. Deine Frage eingeben und staunen 👻
-
----
-
-🧠 Features
-
-- Direkt-Antwort auf jede Frage  
-- Klarer, minimalistischer Look  
-- Optimiert für Desktop & Mobile  
-- 24/7 einsetzbar – keine Anmeldung nötig
-
----
-
-📩 Kontakt
-
-Erstellt von [CHRIS ALDRIAN]  
-Social: @chritical1588
-
----
-
-TheTruthGhost – Frag, was du willst.
-„Wahrheit ist Macht.“ 👻
-```
+## Sicherheit & Hinweise
+- Niemals den API‑Key ins Frontend oder in Commits pushen.
+- Dieser Branch ist für private Tests gedacht. Vor öffentlicher Veröffentlichung:
+  - Auth einbauen (z. B. Auth0, GitHub OAuth)
+  - Rate‑Limiting & Abuse Protection erweitern
+  - Optional: Streamen von Antworten, Vector DB für RAG (Pinecone/pgvector)
